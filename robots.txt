@@ -1,0 +1,7 @@
+# robots.txt for ev.mutualelectricnw.com
+# Allow all search engines to crawl the site
+
+User-agent: *
+Allow: /
+
+Sitemap: https://ev.mutualelectricnw.com/sitemap.xml
