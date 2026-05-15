@@ -105,7 +105,10 @@
 
     /* ========== HERO ========== */
     .hero {
-      background: linear-gradient(135deg, var(--green-lighter) 0%, var(--white) 100%);
+      background: linear-gradient(135deg, rgba(0,53,45,0.88) 0%, rgba(0,80,68,0.74) 100%), url('hero-bg.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
       padding: 60px 0 50px;
       position: relative;
       overflow: hidden;
@@ -144,17 +147,18 @@
       font-weight: 800;
       margin-bottom: 16px;
       letter-spacing: -0.02em;
+      color: #ffffff;
     }
-    .hero h1 span { color: var(--green); }
+    .hero h1 span { color: var(--accent); }
     .hero-sub {
       font-size: 1.15rem;
-      color: var(--gray-600);
+      color: rgba(255,255,255,0.92);
       margin-bottom: 10px;
       line-height: 1.7;
     }
     .hero-area {
       font-size: 0.9rem;
-      color: var(--gray-400);
+      color: rgba(255,255,255,0.72);
       margin-bottom: 28px;
       font-weight: 500;
     }
@@ -215,7 +219,7 @@
       gap: 6px;
       font-size: 0.85rem;
       font-weight: 600;
-      color: var(--gray-600);
+      color: rgba(255,255,255,0.85);
     }
     .hero-trust-item svg { color: var(--accent); flex-shrink: 0; }
     .hero-image {
