@@ -68,20 +68,20 @@ Uploads your saved snapshot to GitHub.
 
 ---
 
-## 4. IMPORTANT — make the change actually go live
+## 4. Going live is now AUTOMATIC
 
-**Pushing to GitHub does NOT update the client's live website.**
+**For this repo (`ev-lp-mutual` → `ev.mutualelectricnw.com`): pushing to GitHub
+auto-publishes to the live site in ~30 seconds. No manual Hostinger upload.**
 
-The live Mutual Electric site is hosted on **Hostinger**. After you push, you must:
+Hostinger is connected to this repo via Git auto-deploy, scoped **only** to the
+`ev.mutualelectricnw.com` site — it cannot touch the main WordPress site at
+`mutualelectricnw.com`. So the moment you `git push`, the change goes live.
 
-1. Log in to **Hostinger** → the Mutual Electric site → **File Manager**.
-2. Upload the changed file(s) (usually `index.html`) into the site's folder,
-   replacing the old version.
-3. Hard-refresh the live site (**Cmd + Shift + R**) to confirm it updated.
+After pushing, wait ~30s and hard-refresh the live page (**Cmd + Shift + R**).
 
-> **GitHub = your backup & version history.
-> Hostinger = the actual live website.
-> BOTH steps are needed every time.**
+> Set up & verified 2026-05-16. NOTE: other Lanello client sites are not
+> auto-deployed yet — those still need their own setup before "push = live"
+> applies to them.
 
 ---
 
@@ -117,5 +117,5 @@ claude
 git add -A
 git commit -m "what you changed"
 git push
-#   ...then upload the changed file(s) to Hostinger File Manager for the client
+#   ...that's it. Auto-deploys to ev.mutualelectricnw.com in ~30s. Hard-refresh to see it.
 ```
