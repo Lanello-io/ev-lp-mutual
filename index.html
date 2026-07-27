@@ -1519,8 +1519,35 @@
     });
   </script>
 
-  <script defer src="https://links.mutualelectricnw.com/js/form_embed.js"></script>
-  <script defer type='text/javascript' src='https://links.mutualelectricnw.com/reputation/assets/review-widget.js'></script>
+  <!-- form_embed.js and review-widget.js only handle iframe resizing/messaging
+       (the form and review iframes load via src on their own), so defer them off
+       the critical path: inject on first user interaction, or shortly after
+       window load, whichever comes first. -->
+  <script>
+    (function () {
+      var loaded = false;
+      var events = ['scroll', 'touchstart', 'mousemove', 'keydown'];
+      function loadWidgetScripts() {
+        if (loaded) return;
+        loaded = true;
+        events.forEach(function (e) { window.removeEventListener(e, loadWidgetScripts); });
+        [
+          'https://links.mutualelectricnw.com/js/form_embed.js',
+          'https://links.mutualelectricnw.com/reputation/assets/review-widget.js'
+        ].forEach(function (src) {
+          var s = document.createElement('script');
+          s.src = src;
+          document.body.appendChild(s);
+        });
+      }
+      events.forEach(function (e) {
+        window.addEventListener(e, loadWidgetScripts, { passive: true });
+      });
+      window.addEventListener('load', function () {
+        setTimeout(loadWidgetScripts, 3000);
+      });
+    })();
+  </script>
 
 </body>
 </html>
